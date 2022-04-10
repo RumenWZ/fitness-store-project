@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+    <section id="highlights" class="wrapper style3">
+        <div class="container">
+            <div class="row aln-center">
+                {% for protein in proteins %}
+                    <div class="col-4 col-12-medium">
+                        <section class="highlight">
+                            <a href="" class="image featured"><img src="{% static 'images/protein1.jpg' %}"
+                                                                   alt=""/></a>
+                            <h5><a href="">{{ protein.name }}</a></h5>
+                            <p>{{ protein.description }}</p>
+                            <h3>Price: {{ protein.price }}</h3>
+                            <ul class="actions">
+                                <li><a href="" class="button style1">Details</a></li>
+                                {% if request.user.is_superuser %}
+                                    <li><a href="#" class="button style1">Edit</a></li>
+                                {% endif %}
+                            </ul>
+                        </section>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

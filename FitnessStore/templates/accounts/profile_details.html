@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+    <div class="row justify-content-center">
+        <div class="d-flex">
+            <div class="d-inline p-2 w-50">
+                <img src="{% static 'images/apple400.jpg' %}"
+                     class="w-50 rounded mx-auto d-block" alt="description">
+            </div>
+            <div class="d-inline p-2 w-50">
+                <div class="d-flex flex-column">
+                    <h5><u>Name:</u> {{ request.user.username }}</h5>
+                    <h5><u>Email:</u> {{ profile.email }}</h5>
+
+                </div>
+                <a href="{% url 'profile logout' %}?next=/" class="btn btn-primary">Logout</a>
+                <a href="#" class="btn btn-danger">Delete Profile</a>
+                <a href="#" class="btn btn-danger">Change Password</a>
+            </div>
+        </div>
+    </div>
+<!-- End Profile Information -->
+
+<!-- Pets Information -->
+<h2 class="text-center">My Purchases</h2>
+<div class="container mb-4">
+    <div class="d-flex justify-content-start mb-5">
+        <!-- Info for First Pet -->
+        <div style="width: 18rem;">
+            <h5>Isolate Protein</h5>
+            <p class="mt-2">Price: 50.00</p>
+        </div>
+
+        <div style="width: 18rem;">
+            <h5>Isolate Protein</h5>
+            <p class="mt-2">Price: 50.00</p>
+        </div>
+
+        <div style="width: 18rem;">
+            <h5>Isolate Protein</h5>
+            <p class="mt-2">Price: 50.00</p>
+        </div>
+        <div style="width: 18rem;">
+            <h5>Isolate Protein</h5>
+            <p class="mt-2">Price: 50.00</p>
+        </div>
+        <div style="width: 18rem;">
+            <h5>Isolate Protein</h5>
+            <p class="mt-2">Price: 50.00</p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
