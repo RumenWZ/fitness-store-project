@@ -1,8 +1,11 @@
 from django.contrib.auth import forms as auth_forms, get_user_model
 from django import forms
+from django.forms import ModelForm
+from django.views.generic import CreateView
 
 from FitnessStore.accounts.models import Profile, FitnessStoreUser
 from FitnessStore.main.helpers import BootstrapFormMixin
+from FitnessStore.main.models import Sales
 from FitnessStore.products.models import Protein
 
 

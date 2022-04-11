@@ -7,9 +7,12 @@ from django.urls import reverse_lazy
 from django.views import generic as views
 
 from FitnessStore.accounts.models import Profile
+# from FitnessStore.main.decorators import unauthenticated_user
 from FitnessStore.main.forms import CreateProfileForm
 
 
+
+# @unauthenticated_user
 class LoginProfileView(auth_views.LoginView):
     template_name = 'accounts/login.html'
     success_url = reverse_lazy('index')

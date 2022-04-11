@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'FitnessStore.main',
     'FitnessStore.products',
     'cloudinary',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

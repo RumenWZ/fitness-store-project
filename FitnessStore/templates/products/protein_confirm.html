@@ -92,22 +92,22 @@
 
                 </div><!--/product_gallery--><!--product_title-->
                 <h2 class="u-align-left u-product-control u-text u-text-1">
-                  <a class="u-product-title-link" href="#"><!--product_title_content-->{{ protein.name }}<!--/product_title_content--></a>
+                  <a class="u-product-title-link" href="#">ARE YOU SURE YOU WANT TO PURCHASE {{ protein.name }} FOR ${{ protein.price }}?</a>
                 </h2><!--/product_title--><!--product_price-->
                 <div class="u-product-control u-product-price u-product-price-1">
                   <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
                     <div class="u-hide-price u-old-price" style="text-decoration: line-through !important;"><!--product_old_price_content-->$20.00<!--/product_old_price_content--></div><!--/product_old_price--><!--product_regular_price-->
-                    <div class="u-price u-text-palette-2-base" style="font-size: 1.875rem; font-weight: 700;"><!--product_regular_price_content-->${{ protein.price }}<!--/product_regular_price_content--></div><!--/product_regular_price-->
                   </div>
                 </div><!--/product_price--><!--product_content-->
                 <div class="u-align-left u-product-control u-product-desc u-text u-text-2"><!--product_content_content-->
-                  <p>{{ protein.description }}</p>
-                    <p>Flavour: {{ protein.flavour }}</p>
                 </div><!--/product_content--><!--product_button--><!--options_json--><!--{"clickType":"go-to-page","content":""}--><!--/options_json-->
-                <a href="{% url 'protein confirm' protein.product_id%}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1">Purchase</a>
+                <a data-product={{ protein.product_id }} data-action="add" href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1 confirm-purchase">Yes</a>
+{#                  <button data-product={{ protein.product_id }} data-action="add" href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1 confirm-purchase">Yes</button>#}
+                  <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1 No">No</a>
+                  <button class="submitBtn" data-x="123" data-action="add" >Submit</button>
               </div>
             </div><!--/product_item--><!--/product-->
           </div>
         </section>
-
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 {% endblock %}
