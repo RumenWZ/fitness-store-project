@@ -28,8 +28,10 @@ SECRET_KEY = 'django-insecure-w8y^+0o$zi5!n4f%cas-qa-_*f&=jzik=41q3+s^l-4qwzkw68
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
+    'fitness-store-project.herokuapp.com',
     'localhost',
+    '127.0.0.1',
+    'fitness-store-project.herokuapp.com',
     'fitness-store-project.herokuapp.com',
 ]
 
