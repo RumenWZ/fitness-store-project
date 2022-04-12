@@ -27,7 +27,11 @@ SECRET_KEY = 'django-insecure-w8y^+0o$zi5!n4f%cas-qa-_*f&=jzik=41q3+s^l-4qwzkw68
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'fitness-store-project.herokuapp.com/'
+]
 
 
 # Application definition
@@ -82,13 +86,24 @@ WSGI_APPLICATION = 'FitnessStore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'fitness_store_dbx',
+#         'USER': 'postgres',
+#         'PASSWORD': '12345zxc',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fitness_store_dbx',
-        'USER': 'postgres',
-        'PASSWORD': '12345zxc',
-        'HOST': '127.0.0.1',
+        'NAME': 'dej179qenjvp9v',
+        'USER': 'dysxfulhwxtgpm',
+        'PASSWORD': '74804b231f7c8c403de53797e60daac29e194f5674de6d1652474abcf0975294',
+        'HOST': 'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
