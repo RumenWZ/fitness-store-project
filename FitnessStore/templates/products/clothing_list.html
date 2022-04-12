@@ -4,18 +4,19 @@
     <section id="highlights" class="wrapper style3">
         <div class="container">
             <div class="row aln-center">
-                {% for protein in proteins %}
+                {% for item in clothing %}
                     <div class="col-4 col-12-medium">
                         <section class="highlight">
-                            <a href="{% url 'protein details' protein.product_id %}" class="image featured"><img src="{{ protein.picture.url }}"
+                            <a href="{% url 'clothing details' item.product_id %}" class="image featured"><img src="{{ item.picture.url }}"
                                                                    alt=""/></a>
-                            <h5><a href="">{{ protein.name }}</a></h5>
-                            <p>{{ protein.description }}</p>
-                            <h3>Price: {{ protein.price }}</h3>
+                            <h5><a href="">{{ item.name }}</a></h5>
+                            <p>{{ item.description }}</p>
+                            <p>Size: {{ item.size }}</p>
+                            <h3>Price: {{ item.price }}</h3>
                             <ul class="actions">
-                                <li><a href="{% url 'protein details' protein.product_id %}" class="button style1">Details</a></li>
+                                <li><a href="{% url 'clothing details' item.product_id %}" class="button style1">Details</a></li>
                                 {% if request.user.is_superuser or request.user.is_staff %}
-                                    <li><a href="{% url 'protein edit' protein.product_id %}" class="button style1">Edit</a></li>
+{#                                    <li><a href="{% url 'clothing edit' item.product_id %}" class="button style1">Edit</a></li>#}
                                 {% endif %}
                             </ul>
                         </section>

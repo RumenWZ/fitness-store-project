@@ -1,17 +1,4 @@
-// var confirmBtn = document.getElementsByClassName('confirm-purchase')
-//
-//
-// console.log(confirmBtn)
-//
-// for(var i=0; i < confirmBtn.length; i++) {
-//     confirmBtn[i].addEventListener('click', function(){
-//         const productId = this.dataset.product
-//         console.log(productId)
-//     })
-// }
-
 const myBtn = document.getElementsByClassName('confirm-purchase')
-
 
 
 for(let i=0; i < myBtn.length ; i++){

@@ -40,8 +40,50 @@ class Protein(models.Model):
         null=True,
     )
 
-    amount_sold = models.IntegerField(
-        default=0,
+    out_of_stock = models.BooleanField(
+        default=False,
+    )
+
+
+class Clothing(models.Model):
+    CLOTHING_NAME_MAX_LENGTH = 60
+    CLOTHING_PRICE_MAX_DIGITS = 10
+
+    S = 'S'
+    M = 'M'
+    X = 'X'
+    XL = 'XL'
+
+    SIZES = [(x, x) for x in (S, M, X, XL)]
+
+    product_id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+    )
+
+    name = models.CharField(
+        max_length=CLOTHING_NAME_MAX_LENGTH,
+    )
+
+    picture = cloudinary_models.CloudinaryField('image')
+
+    description = models.TextField(
+        blank=True,
+        null=False,
+    )
+
+    price = models.DecimalField(
+        max_digits=CLOTHING_PRICE_MAX_DIGITS,
+        decimal_places=2,
+    )
+
+    size = models.CharField(
+        max_length=max(len(x) for x, _ in SIZES),
+        choices=SIZES,
+        null=False,
+        blank=False,
+        default=S,
     )
 
     out_of_stock = models.BooleanField(

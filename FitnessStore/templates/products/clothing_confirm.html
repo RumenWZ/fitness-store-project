@@ -60,7 +60,7 @@
                   <div class="u-carousel-inner u-gallery-inner" role="listbox"><!--product_gallery_item-->
                     <div class="u-active u-carousel-item u-gallery-item">
                       <div class="u-back-slide">
-                        <img class="u-back-image u-expanded" src="{{ protein.picture.url }}">
+                        <img class="u-back-image u-expanded" src="{{ clothing.picture.url }}">
                       </div>
 
                     </div><!--/product_gallery_item-->
@@ -92,7 +92,7 @@
 
                 </div><!--/product_gallery--><!--product_title-->
                 <h2 class="u-align-left u-product-control u-text u-text-1">
-                  <a class="u-product-title-link" href="#">ARE YOU SURE YOU WANT TO PURCHASE {{ protein.name }} FOR ${{ protein.price }}?</a>
+                  <a class="u-product-title-link" href="#">ARE YOU SURE YOU WANT TO PURCHASE {{ clothing.name }} FOR ${{ clothing.price }}?</a>
                 </h2><!--/product_title--><!--product_price-->
                 <div class="u-product-control u-product-price u-product-price-1">
                   <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
@@ -101,9 +101,9 @@
                 </div><!--/product_price--><!--product_content-->
                 <div class="u-align-left u-product-control u-product-desc u-text u-text-2"><!--product_content_content-->
                 </div><!--/product_content--><!--product_button--><!--options_json--><!--{"clickType":"go-to-page","content":""}--><!--/options_json-->
-                <a data-product={{ protein.product_id }} data-action="protein" href="{% url 'success' %}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1 confirm-purchase">Yes</a>
+                <a data-product={{ clothing.product_id }} data-action="clothing" href="{% url 'success' %}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1 confirm-purchase">Yes</a>
 {#                  <button data-product={{ protein.product_id }} data-action="add" href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1 confirm-purchase">Yes</button>#}
-                  <a href="{% url 'protein details' protein.product_id %}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1 No">No</a>
+                  <a href="{% url 'clothing details' clothing.product_id %}" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-2 u-product-control u-radius-6 u-text-black u-text-hover-white u-btn-1 No">No</a>
               </div>
             </div><!--/product_item--><!--/product-->
           </div>

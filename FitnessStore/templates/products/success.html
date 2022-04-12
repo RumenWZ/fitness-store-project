@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+
+
+
+						<!-- Features -->
+							<section id="features">
+								<header class="style1">
+									<h2>Purchase Successful</h2>
+									<p>Thank you for shopping</p>
+
+								<ul class="actions special">
+									<li><a href="{% url 'index' %}" class="button style2 large">Back to home</a></li>
+								</ul>
+                                </header>
+							</section>
+
+
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+{% endblock %}

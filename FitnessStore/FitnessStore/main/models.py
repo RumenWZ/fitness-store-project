@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from FitnessStore.accounts.models import FitnessStoreUser
-from FitnessStore.products.models import Protein
+from FitnessStore.products.models import Protein, Clothing
 import uuid
 
 class Sales(models.Model):

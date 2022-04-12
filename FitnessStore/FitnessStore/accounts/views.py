@@ -10,9 +10,11 @@ from FitnessStore.accounts.models import Profile
 # from FitnessStore.main.decorators import unauthenticated_user
 from FitnessStore.main.forms import CreateProfileForm
 
-
-
 # @unauthenticated_user
+from FitnessStore.main.models import Sales
+from FitnessStore.products.models import Protein
+
+
 class LoginProfileView(auth_views.LoginView):
     template_name = 'accounts/login.html'
     success_url = reverse_lazy('index')
@@ -28,13 +30,6 @@ class RegisterProfileView(views.CreateView):
     form_class = CreateProfileForm
     success_url = reverse_lazy('index')
 
-    # def form_valid(self, form):
-    #     form.save()
-    #     username = self.request.POST['username']
-    #     password = self.request.POST['password1']
-    #     user = authenticate(username=username, password=password)
-    #     login(self.request, user)
-    #     return HttpResponseRedirect(self.get_success_url)
 
 
 class ProfileLogoutView(auth_views.LogoutView):
@@ -45,3 +40,27 @@ class ProfileDetailsView(views.ListView):
     model = Profile
     template_name = 'accounts/profile_details.html'
     context_object_name = 'profile'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        purchases = list(Sales.objects.filter(buyer_id=self.request.user.id))
+        all_proteins = Protein.objects.all()
+        print(f'purchases {purchases}')
+        purchase_results = []
+        for purchase in purchases:
+            item = list(Protein.objects.filter(product_id=purchase.product_id))
+            print(item)
+            purchase_results.append(item[0])
+        print(purchase_results)
+
+        print(f'All proteins: {all_proteins}')
+        print(purchases)
+        print(f'purch results {purchase_results}')
+
+        context.update({
+            'purchases': purchase_results,
+            'x': purchases
+        })
+
+        return context

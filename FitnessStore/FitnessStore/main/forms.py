@@ -57,3 +57,13 @@ class CreateProfileForm(BootstrapFormMixin, auth_forms.UserCreationForm):
             ),
 
         }
+
+
+class EditProteinForm(BootstrapFormMixin, forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._init_bootstrap_form_controls()
+
+    class Meta:
+        model = Protein
+        fields = ('name', 'picture', 'description', 'flavour')

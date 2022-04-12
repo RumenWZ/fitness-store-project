@@ -10,7 +10,6 @@
             <div class="d-inline p-2 w-50">
                 <div class="d-flex flex-column">
                     <h5><u>Name:</u> {{ request.user.username }}</h5>
-                    <h5><u>Email:</u> {{ profile.email }}</h5>
 
                 </div>
                 <a href="{% url 'profile logout' %}?next=/" class="btn btn-primary">Logout</a>
@@ -26,28 +25,13 @@
 <div class="container mb-4">
     <div class="d-flex justify-content-start mb-5">
         <!-- Info for First Pet -->
+        {% for purchase in purchases %}
         <div style="width: 18rem;">
-            <h5>Isolate Protein</h5>
-            <p class="mt-2">Price: 50.00</p>
-        </div>
 
-        <div style="width: 18rem;">
-            <h5>Isolate Protein</h5>
-            <p class="mt-2">Price: 50.00</p>
+            <h5>{{ purchase.name }}</h5>
+            <p class="mt-2">Price: ${{ purchase.price }}</p>
         </div>
-
-        <div style="width: 18rem;">
-            <h5>Isolate Protein</h5>
-            <p class="mt-2">Price: 50.00</p>
-        </div>
-        <div style="width: 18rem;">
-            <h5>Isolate Protein</h5>
-            <p class="mt-2">Price: 50.00</p>
-        </div>
-        <div style="width: 18rem;">
-            <h5>Isolate Protein</h5>
-            <p class="mt-2">Price: 50.00</p>
-        </div>
+        {% endfor %}
 
     </div>
 </div>
