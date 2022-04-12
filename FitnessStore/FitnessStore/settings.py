@@ -29,10 +29,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'fitness-store-project.herokuapp.com',
-    'localhost',
-    '127.0.0.1',
-    'fitness-store-project.herokuapp.com',
-    'fitness-store-project.herokuapp.com',
 ]
 
 
