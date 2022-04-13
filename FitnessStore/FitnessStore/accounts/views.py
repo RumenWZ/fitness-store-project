@@ -12,7 +12,7 @@ from FitnessStore.main.forms import CreateProfileForm
 
 # @unauthenticated_user
 from FitnessStore.main.models import Sales
-from FitnessStore.products.models import Protein
+from FitnessStore.products.models import Protein, Clothing
 
 
 class LoginProfileView(auth_views.LoginView):
@@ -45,18 +45,15 @@ class ProfileDetailsView(views.ListView):
         context = super().get_context_data(**kwargs)
 
         purchases = list(Sales.objects.filter(buyer_id=self.request.user.id))
-        all_proteins = Protein.objects.all()
-        print(f'purchases {purchases}')
+
         purchase_results = []
         for purchase in purchases:
             item = list(Protein.objects.filter(product_id=purchase.product_id))
-            print(item)
-            purchase_results.append(item[0])
-        print(purchase_results)
-
-        print(f'All proteins: {all_proteins}')
-        print(purchases)
-        print(f'purch results {purchase_results}')
+            if item:
+                purchase_results.append(item[0])
+            else:
+                item = list(Clothing.objects.filter(product_id=purchase.product_id))
+                purchase_results.append(item[0])
 
         context.update({
             'purchases': purchase_results,
