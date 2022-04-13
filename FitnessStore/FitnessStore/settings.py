@@ -94,7 +94,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-if ENVIRONMENT == 'Development':
+if ENVIRONMENT == 'Production':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
