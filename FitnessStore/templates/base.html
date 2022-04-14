@@ -39,11 +39,11 @@
     <section id="header" class="wrapper">
 
         <!-- Logo -->
-        <div id="logo">
-            <p>&nbsp;</p>
-            <h1><a href="">Gymbear</a></h1>
-            <p>&nbsp;</p>
-        </div>
+{#        <div id="logo">#}
+{#            <p>&nbsp;</p>#}
+{#            <h1><a href="">Gymbear</a></h1>#}
+{#            <p>&nbsp;</p>#}
+{#        </div>#}
 
         <!-- Nav -->
         <nav id="nav">
@@ -61,7 +61,7 @@
                 {% endif %}
                 {% if request.user.is_authenticated %}
                     <li style="float: right;" class="current"><a href="{% url 'profile details' %}">Profile</a></li>
-                    <li style="float: right;"><a href="#">Hello, {{ request.user }}</a></li>
+{#                    <li style="float: right;"><a href="#">Hello, {{ request.user }}</a></li>#}
                 {% else %}
                     <li style="float: right;" class="current"><a href="{% url 'register' %}">Register</a></li>
                     <li style="float: right;" class="current"><a href="{% url 'login' %}">Login</a></li>

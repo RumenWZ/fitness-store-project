@@ -2,60 +2,41 @@
 {% load static %}
 {% block page_content %}
 
-            <!-- Image -->
-            <a href="#" class="image featured">
-                <img src="{% static 'images/suppliments_banner.jpg' %}" alt=""/>
-            </a>
-            <ul class="actions special">
-                <li><a href="{% url 'protein list' %}" class="button style1 large">Protein</a></li>
-                <li><a href="{% url 'clothing list' %}" class="button style1 large">Clothing</a></li>
-                <li><a href="#" class="button style1 large">Vitamins</a></li>
-                <li><a href="#" class="button style2 large">Drinks</a></li>
-            </ul>
+    <!-- Image -->
+    <a href="#" class="image featured">
+        <img src="{% static 'images/suppliments_banner.jpg' %}" alt=""/>
+    </a>
+    <ul class="actions special">
+        <li><a href="{% url 'protein list' %}" class="button style1 large">Protein</a></li>
+        <li><a href="{% url 'clothing list' %}" class="button style1 large">Clothing</a></li>
+        <li><a href="#" class="button style1 large">Vitamins</a></li>
+        <li><a href="#" class="button style1 large">Drinks</a></li>
+    </ul>
 
-            <section id="highlights" class="wrapper style3">
-{#                <div class="title">Best sellers</div>#}
-                <div class="container">
+    <section id="highlights" class="wrapper style3">
+        {#                <div class="title">Best sellers</div>#}
+        <div class="container">
+            {% if sales %}
+                {% for product in sales %}
                     <div class="row aln-center">
-                        <div class="col-4 col-12-medium">
-                            <section class="highlight">
-                                <a href="#" class="image featured"><img src="{% static 'images/pic02.jpg' %}"
-                                                                        alt=""/></a>
-                                <h3><a href="#">Aliquam diam consequat</a></h3>
-                                <p>Eget mattis at, laoreet vel amet sed velit aliquam diam ante, dolor aliquet sit amet
-                                    vulputate mattis amet laoreet lorem.</p>
-                                <ul class="actions">
-                                    <li><a href="#" class="button style1">Learn More</a></li>
-                                </ul>
-                            </section>
-                        </div>
-                        <div class="col-4 col-12-medium">
-                            <section class="highlight">
-                                <a href="#" class="image featured"><img src="{% static 'images/pic03.jpg' %}"
-                                                                        alt=""/></a>
-                                <h3><a href="#">Nisl adipiscing sed lorem</a></h3>
-                                <p>Eget mattis at, laoreet vel amet sed velit aliquam diam ante, dolor aliquet sit amet
-                                    vulputate mattis amet laoreet lorem.</p>
-                                <ul class="actions">
-                                    <li><a href="#" class="button style1">Learn More</a></li>
-                                </ul>
-                            </section>
-                        </div>
-                        <div class="col-4 col-12-medium">
-                            <section class="highlight">
-                                <a href="#" class="image featured"><img src="{% static 'images/pic04.jpg' %}"
-                                                                        alt=""/></a>
-                                <h3><a href="#">Mattis tempus lorem</a></h3>
-                                <p>Eget mattis at, laoreet vel amet sed velit aliquam diam ante, dolor aliquet sit amet
-                                    vulputate mattis amet laoreet lorem.</p>
-                                <ul class="actions">
-                                    <li><a href="#" class="button style1">Learn More</a></li>
-                                </ul>
-                            </section>
-                        </div>
-
+                    <div class="col-4 col-12-medium">
+                        <section class="highlight">
+                            <a href="#" class="image featured"><img src="{{ product.picture.url }}"
+                                                                    alt=""/></a>
+                            <h3><a href="#">{{ product.name }}</a></h3>
+                            <p>{{ product.description }}</p>
+                            <ul class="actions">
+                                <li><a href="{}" class="button style1">Learn More</a></li>
+                            </ul>
+                        </section>
                     </div>
-                </div>
-            </section>
+                {% endfor %}
+            {% else %}
+                <p>There are currently no items to show.</p>
+            {% endif %}
+
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

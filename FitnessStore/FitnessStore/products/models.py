@@ -44,6 +44,10 @@ class Protein(models.Model):
         default=False,
     )
 
+    type = models.TextField(
+        default="Protein",
+    )
+
 
 class Clothing(models.Model):
     CLOTHING_NAME_MAX_LENGTH = 60
@@ -88,4 +92,8 @@ class Clothing(models.Model):
 
     out_of_stock = models.BooleanField(
         default=False,
+    )
+
+    type = models.TextField(
+        default="Clothing",
     )
