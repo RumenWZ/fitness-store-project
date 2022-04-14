@@ -13,30 +13,30 @@
         <li><a href="#" class="button style1 large">Drinks</a></li>
     </ul>
 
-    <section id="highlights" class="wrapper style3">
+{#    <section id="highlights" class="wrapper style3">#}
         {#                <div class="title">Best sellers</div>#}
-        <div class="container">
-            {% if sales %}
-                {% for product in sales %}
-                    <div class="row aln-center">
-                    <div class="col-4 col-12-medium">
-                        <section class="highlight">
-                            <a href="#" class="image featured"><img src="{{ product.picture.url }}"
-                                                                    alt=""/></a>
-                            <h3><a href="#">{{ product.name }}</a></h3>
-                            <p>{{ product.description }}</p>
-                            <ul class="actions">
-                                <li><a href="{}" class="button style1">Learn More</a></li>
-                            </ul>
-                        </section>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <p>There are currently no items to show.</p>
-            {% endif %}
-
-            </div>
-        </div>
-    </section>
+{#        <div class="container">#}
+{#            {% if sales %}#}
+{#                {% for product in sales %}#}
+{#                    <div class="row aln-center">#}
+{#                    <div class="col-4 col-12-medium">#}
+{#                        <section class="highlight">#}
+{#                            <a href="#" class="image featured"><img src="{{ product.picture.url }}"#}
+{#                                                                    alt=""/></a>#}
+{#                            <h3><a href="#">{{ product.name }}</a></h3>#}
+{#                            <p>{{ product.description }}</p>#}
+{#                            <ul class="actions">#}
+{#                                <li><a href="{}" class="button style1">Learn More</a></li>#}
+{#                            </ul>#}
+{#                        </section>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            {% else %}#}
+{#                <p>There are currently no items to show.</p>#}
+{#            {% endif %}#}
+{##}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
 
 {% endblock %}
