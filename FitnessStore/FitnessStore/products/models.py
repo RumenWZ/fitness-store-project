@@ -55,10 +55,10 @@ class Clothing(models.Model):
 
     S = 'S'
     M = 'M'
-    X = 'X'
+    L = 'L'
     XL = 'XL'
 
-    SIZES = [(x, x) for x in (S, M, X, XL)]
+    SIZES = [(x, x) for x in (S, M, L, XL)]
 
     product_id = models.UUIDField(
         primary_key=True,
