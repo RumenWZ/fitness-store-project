@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 # Create your views here.
 from django.views import generic as views
@@ -6,19 +7,14 @@ from django.views import generic as views
 from FitnessStore.main.models import Sales
 
 
-class HomeView(views.ListView):
+class HomeView(views.TemplateView):
     template_name = 'main/index.html'
-    model = Sales
-    context_object_name = "sales"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
 
-        total_sales = Sales.objects.all()
-        print(total_sales[:3])
-        context.update({
-            'top_sales': total_sales[:3],
-        })
-        return context
+class AdminFunctionsView(UserPassesTestMixin, views.TemplateView):
+    template_name = 'main/admin_functions.html'
 
+    def test_func(self):
+        result = self.request.user.is_superuser or self.request.user.is_staff
+        return result
 

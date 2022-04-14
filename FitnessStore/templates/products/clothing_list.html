@@ -16,7 +16,7 @@
                             <ul class="actions">
                                 <li><a href="{% url 'clothing details' item.product_id %}" class="button style1">Details</a></li>
                                 {% if request.user.is_superuser or request.user.is_staff %}
-{#                                    <li><a href="{% url 'clothing edit' item.product_id %}" class="button style1">Edit</a></li>#}
+                                    <li><a href="{% url 'clothing edit' item.product_id %}" class="button style1">Edit</a></li>
                                 {% endif %}
                             </ul>
                         </section>

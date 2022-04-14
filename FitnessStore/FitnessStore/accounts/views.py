@@ -30,6 +30,13 @@ class RegisterProfileView(views.CreateView):
     form_class = CreateProfileForm
     success_url = reverse_lazy('index')
 
+    def form_valid(self, form):
+        form.save()
+        username = self.request.POST['username']
+        password = self.request.POST['password1']
+        user = authenticate(username=username, password=password)
+        login(self.request, user)
+        return HttpResponseRedirect(self.get_success_url)
 
 
 class ProfileLogoutView(auth_views.LogoutView):

@@ -2,7 +2,7 @@ from django.urls import path
 
 from FitnessStore.products.views import ProteinsListView, ProteinAddView, ProteinDetailsView, \
     ProteinConfirmPurchaseView, purchase_success, ProteinEditView, SuccessView, ClothingListView, ClothingAddView, \
-    ClothingDetailsView, ClothingConfirmPurchaseView
+    ClothingDetailsView, ClothingConfirmPurchaseView, ClothingEditView
 
 urlpatterns = (
     path('success/', purchase_success, name='purchase success'),
@@ -18,6 +18,5 @@ urlpatterns = (
     path('clothing/add', ClothingAddView.as_view(), name='clothing add'),
     path('clothing/<str:pk>/', ClothingDetailsView.as_view(), name='clothing details'),
     path('clothing/confirm/<str:pk>/', ClothingConfirmPurchaseView.as_view(), name='clothing confirm'),
-    #DRINKS
-
+    path('clothing/edit/<str:pk>/', ClothingEditView.as_view(), name='clothing edit'),
 )

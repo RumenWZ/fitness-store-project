@@ -6,7 +6,7 @@ from django.views.generic import CreateView
 from FitnessStore.accounts.models import Profile, FitnessStoreUser
 from FitnessStore.main.helpers import BootstrapFormMixin
 from FitnessStore.main.models import Sales
-from FitnessStore.products.models import Protein
+from FitnessStore.products.models import Protein, Clothing
 
 
 class CreateProfileForm(BootstrapFormMixin, auth_forms.UserCreationForm):
@@ -67,3 +67,13 @@ class EditProteinForm(BootstrapFormMixin, forms.ModelForm):
     class Meta:
         model = Protein
         fields = ('name', 'picture', 'description', 'flavour')
+
+
+class EditClothingForm(BootstrapFormMixin, forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._init_bootstrap_form_controls()
+
+    class Meta:
+        model = Clothing
+        fields = ('name', 'picture', 'description', 'size',)
