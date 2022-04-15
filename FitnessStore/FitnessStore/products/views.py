@@ -1,12 +1,13 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 import json
 from rest_framework.decorators import api_view
 
 # Create your views here.
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 
 from FitnessStore.common.validators import check_superuser
@@ -14,11 +15,14 @@ from FitnessStore.main.forms import EditProteinForm, EditClothingForm
 from FitnessStore.main.models import Sales
 from FitnessStore.products.models import Protein, Clothing
 
+UserModel = get_user_model()
+
 
 class ProteinsListView(views.ListView):
     model = Protein
     template_name = 'products/proteins_list.html'
     context_object_name = 'proteins'
+    print(UserModel)
 
 
 class ProteinAddView(UserPassesTestMixin, views.CreateView):
@@ -57,6 +61,15 @@ class ProteinEditView(UserPassesTestMixin, views.UpdateView):
     def test_func(self):
         result = self.request.user.is_superuser or self.request.user.is_staff
         return result
+
+
+class ProteinDeleteView(UserPassesTestMixin, views.DeleteView):
+    template_name = 'products/protein_delete.html'
+    model = Protein
+    success_url = reverse_lazy('protein list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
 
 
 # *******************CLOTHING***********************
@@ -105,6 +118,16 @@ class ClothingConfirmPurchaseView(views.DetailView):
     context_object_name = 'clothing'
 
 
+class ClothingDeleteView(UserPassesTestMixin, views.DeleteView):
+    template_name = 'products/clothing_delete.html'
+    model = Clothing
+    success_url = reverse_lazy('clothing list')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+
+# ****************OTHER******************
 class SuccessView(views.TemplateView):
     template_name = 'products/success.html'
 

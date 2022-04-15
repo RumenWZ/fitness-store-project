@@ -60,7 +60,8 @@ class ProfileDetailsView(views.ListView):
                 purchase_results.append(item[0])
             else:
                 item = list(Clothing.objects.filter(product_id=purchase.product_id))
-                purchase_results.append(item[0])
+                if item:
+                    purchase_results.append(item[0])
 
         context.update({
             'purchases': purchase_results,

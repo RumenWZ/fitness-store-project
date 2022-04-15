@@ -4,9 +4,11 @@ from django.forms import ModelForm
 from django.views.generic import CreateView
 
 from FitnessStore.accounts.models import Profile, FitnessStoreUser
-from FitnessStore.main.helpers import BootstrapFormMixin
+from FitnessStore.main.helpers import BootstrapFormMixin, DisabledFieldsFormMixin
 from FitnessStore.main.models import Sales
 from FitnessStore.products.models import Protein, Clothing
+
+UserModel = get_user_model()
 
 
 class CreateProfileForm(BootstrapFormMixin, auth_forms.UserCreationForm):

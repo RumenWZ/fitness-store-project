@@ -1,3 +1,6 @@
+from django import forms
+
+
 class BootstrapFormMixin:
     fields = {}
 
@@ -9,11 +12,13 @@ class BootstrapFormMixin:
                 field.widget.attrs['class'] = ''
             field.widget.attrs['class'] += ' form-control'
 
+
 class DisabledFieldsFormMixin:
     disabled_fields = '__all__'
     fields = {}
 
     def _init_disabled_fields(self):
+
         for name, field in self.fields.items():
             if self.disabled_fields != '__all__' and name not in self.disabled_fields:
                 continue
