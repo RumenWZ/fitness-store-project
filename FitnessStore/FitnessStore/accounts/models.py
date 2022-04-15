@@ -59,8 +59,8 @@ class Profile(models.Model):
     )
 
     email = models.EmailField(
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
     )
 
     user = models.OneToOneField(

@@ -14,10 +14,11 @@
                             <h3>Price: {{ protein.price }}</h3>
                             <ul class="actions">
                                 <li><a href="{% url 'protein details' protein.product_id %}" class="button style1">Details</a></li>
-                                {% if request.user.is_superuser or request.user.is_staff %}
-                                    <li><a href="{% url 'protein edit' protein.product_id %}" class="button style1">Edit</a></li>
-                                {% endif %}
+
                             </ul>
+                            {% if request.user.is_superuser or request.user.is_staff %}
+                                    <a href="{% url 'protein edit' protein.product_id %}" class="button style1">Edit</a>
+                                {% endif %}
                         </section>
                     </div>
                 {% endfor %}
