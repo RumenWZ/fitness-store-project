@@ -46,7 +46,8 @@ class ProteinDetailsView(views.DetailView):
     context_object_name = 'protein'
 
 
-class ProteinConfirmPurchaseView(views.DetailView):
+class ProteinConfirmPurchaseView(LoginRequiredMixin, views.DetailView):
+    login_url = 'login'
     model = Protein
     template_name = 'products/protein_confirm.html'
     context_object_name = 'protein'
@@ -112,7 +113,8 @@ class ClothingEditView(UserPassesTestMixin, views.UpdateView):
         return result
 
 
-class ClothingConfirmPurchaseView(views.DetailView):
+class ClothingConfirmPurchaseView(LoginRequiredMixin, views.DetailView):
+    login_url = 'login'
     model = Clothing
     template_name = 'products/clothing_confirm.html'
     context_object_name = 'clothing'

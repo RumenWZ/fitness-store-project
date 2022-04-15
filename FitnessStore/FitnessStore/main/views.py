@@ -18,3 +18,13 @@ class AdminFunctionsView(UserPassesTestMixin, views.TemplateView):
         result = self.request.user.is_superuser or self.request.user.is_staff
         return result
 
+
+def error404(request, *args, **kwargs):
+    return redirect(request, "errors/404.html", status=404)
+
+
+def error403(request, exception):
+    return render(request, "errors/403.html", status=403)
+
+def error500(request):
+    return render(request, "errors/500.html", status=500)

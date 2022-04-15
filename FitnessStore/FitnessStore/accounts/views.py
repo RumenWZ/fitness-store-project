@@ -1,4 +1,5 @@
 from django.contrib.auth import views as auth_views, authenticate, login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -30,20 +31,13 @@ class RegisterProfileView(views.CreateView):
     form_class = CreateProfileForm
     success_url = reverse_lazy('index')
 
-    def form_valid(self, form):
-        form.save()
-        username = self.request.POST['username']
-        password = self.request.POST['password1']
-        user = authenticate(username=username, password=password)
-        login(self.request, user)
-        return HttpResponseRedirect(self.get_success_url)
-
 
 class ProfileLogoutView(auth_views.LogoutView):
     pass
 
 
-class ProfileDetailsView(views.ListView):
+class ProfileDetailsView(LoginRequiredMixin, views.ListView):
+    login_url = 'login'
     model = Profile
     template_name = 'accounts/profile_details.html'
     context_object_name = 'profile'
@@ -65,7 +59,6 @@ class ProfileDetailsView(views.ListView):
 
         context.update({
             'purchases': purchase_results,
-            'x': purchases
         })
 
         return context
