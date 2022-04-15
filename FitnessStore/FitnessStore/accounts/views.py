@@ -9,7 +9,7 @@ from django.views import generic as views
 
 from FitnessStore.accounts.models import Profile
 # from FitnessStore.main.decorators import unauthenticated_user
-from FitnessStore.main.forms import CreateProfileForm
+from FitnessStore.main.forms import CreateProfileForm, EditProfileForm
 
 # @unauthenticated_user
 from FitnessStore.main.models import Sales
@@ -35,6 +35,9 @@ class RegisterProfileView(views.CreateView):
 class ProfileLogoutView(auth_views.LogoutView):
     pass
 
+
+class ChangePasswordView(auth_views.PasswordChangeView):
+    template_name = 'accounts/change_password.html'
 
 class ProfileDetailsView(LoginRequiredMixin, views.ListView):
     login_url = 'login'

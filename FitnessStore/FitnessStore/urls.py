@@ -11,5 +11,3 @@ urlpatterns = [
 
 handler400 = 'FitnessStore.main.views.error400'
 handler403 = 'FitnessStore.main.views.error403'
-handler404 = 'FitnessStore.main.views.error404'
-handler500 = 'FitnessStore.main.views.error500'

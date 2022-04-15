@@ -33,8 +33,9 @@ def error403(request, exception):
 # def error404(request, *args, **kwargs):
 #     content = loader.render_to_string('errors/404.html', {}, request)
 #     return HttpResponseNotFound(content)
-def error404(request, exception):
-    return page_not_found(request, exception, template_name="errors/404.html")
+def error404(request):
+    return render(request, 'errors/404.html')
 
-def error500(request):
+
+def internal_server_error(request):
     return render(request, "errors/500.html", status=500)

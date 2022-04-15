@@ -13,25 +13,29 @@
 
                 </div>
                 <a href="{% url 'profile logout' %}?next=/" class="btn btn-primary">Logout</a>
-                <a href="#" class="btn btn-danger">Delete Profile</a>
-                <a href="#" class="btn btn-danger">Change Password</a>
+                <a href="{% url 'change password' %}" class="btn btn-danger">Change Password</a>
             </div>
         </div>
     </div>
 <!-- End Profile Information -->
 
 <!-- Pets Information -->
-<h2 class="text-center">My Purchases</h2>
+<h2 class="text-center">My Purchases: </h2>
+    <h2>&nbsp;</h2>
 <div class="container mb-4">
     <div class="d-flex justify-content-start mb-5">
         <!-- Info for First Pet -->
-        {% for purchase in purchases %}
-        <div style="width: 18rem;">
+        {% if purchases %}
+            {% for purchase in purchases %}
+            <div style="width: 18rem;">
 
-            <h5>{{ purchase.name }}</h5>
-            <p class="mt-2">Price: ${{ purchase.price }}</p>
-        </div>
-        {% endfor %}
+                <h5>{{ purchase.name }}</h5>
+                <p class="mt-2">Price: ${{ purchase.price }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p2>No purchases yet.</p2>
+        {% endif %}
 
     </div>
 </div>

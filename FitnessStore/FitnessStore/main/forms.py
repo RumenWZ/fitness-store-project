@@ -61,6 +61,16 @@ class CreateProfileForm(BootstrapFormMixin, auth_forms.UserCreationForm):
         }
 
 
+class EditProfileForm(BootstrapFormMixin, forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._init_bootstrap_form_controls()
+
+    class Meta:
+        model = Profile
+        fields = ('first_name', 'last_name', 'email')
+
+
 class EditProteinForm(BootstrapFormMixin, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
