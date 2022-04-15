@@ -26,13 +26,13 @@ ENVIRONMENT = os.getenv('ENVIRONMENT')
 SECRET_KEY = 'django-insecure-w8y^+0o$zi5!n4f%cas-qa-_*f&=jzik=41q3+s^l-4qwzkw68'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# if ENVIRONMENT == "Production":
-#     DEBUG = False
+DEBUG = True
+if ENVIRONMENT == "Production":
+    DEBUG = False
 
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(' ')
-
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(' ')
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -168,31 +168,23 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
-        'console':{
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
+# LOGGING = {
+#      'version': 1,
+#      'disable_existing_loggers': False,
+#      'handlers': {
+#          'console': {
+#              'class': 'logging.StreamHandler',
+#          },
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': 'log.django',
+#         },
+#      },
+#      'loggers': {
+#          'django': {
+#              'handlers': ['console','file'],
+#              'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+#          },
+#      },
+# }

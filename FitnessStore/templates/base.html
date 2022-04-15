@@ -51,18 +51,24 @@
                 <li style="float: left;" class="current"><a href="{% url 'index' %}">Home</a></li>
                 <li class="current"><a href="{% url 'protein list' %}">Protein</a></li>
                 <li class="current"><a href="{% url 'clothing list' %}">Clothing</a></li>
-{#            <li style="float: left;" class="current"><a href="{% url 'protein list' %}">Protein</a></li>#}
-
-                <li class="current"><a href="{% url 'protein add' %}">Add Protein</a></li>
-                <li class="current"><a href="{% url 'clothing add' %}">Add Clothing</a></li>
-                <li class="current"><a href="{% url 'clothing add' %}">Add Clothing</a></li>
+                {#            <li style="float: left;" class="current"><a href="{% url 'protein list' %}">Protein</a></li>#}
+                <li class="current">&nbsp;</li>
+                <li class="current">&nbsp;</li>
+                <li class="current">&nbsp;</li>
+                <li class="current">&nbsp;</li>
+                <li class="current">&nbsp;</li>
+                <li class="current">&nbsp;</li>
+                <li class="current">&nbsp;</li>
+                                <li class="current"><a href="{% url 'protein add' %}">Add Protein</a></li>
+                {#                <li class="current"><a href="{% url 'clothing add' %}">Add Clothing</a></li>#}
 
                 {% if request.user.is_superuser or request.user.is_staff %}
-                    <li style="float: right;" class="current"><a href="{% url 'admin functions' %}">Admin Functions</a></li>
+                    <li style="float: right;" class="current"><a href="{% url 'admin functions' %}">Admin Functions</a>
+                    </li>
                 {% endif %}
                 {% if request.user.is_authenticated %}
                     <li style="float: right;" class="current"><a href="{% url 'profile details' %}">Profile</a></li>
-{#                    <li style="float: right;"><a href="#">Hello, {{ request.user }}</a></li>#}
+                    {#                    <li style="float: right;"><a href="#">Hello, {{ request.user }}</a></li>#}
                 {% else %}
                     <li style="float: right;" class="current"><a href="{% url 'register' %}">Register</a></li>
                     <li style="float: right;" class="current"><a href="{% url 'login' %}">Login</a></li>
